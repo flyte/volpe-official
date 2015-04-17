@@ -1,0 +1,35 @@
+body {
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+
+}
+
+.footer {
+	color: #696969;
+}
+
+a:link {
+	color: #696969;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #483d8b;
+}
+
+a:active {
+	color: #483d8b;
+}
+
+a:visited {
+	color: #696969;
+	text-decoration: none;
+
+@font-face {
+	font-family: 'Nunito', sans-serif;
+	src: url('http://fonts.googleapis.com/css?family=Nunito:400,700');
+}
+
+#my_canvas {
+	border: 1px solid red;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Volpe Frogger</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Nunito:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <script src="js/resources.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/engine.js"></script>
+    <!-- probably want to add everything below via js manipulation so the music doesn't start until actual game play starts; but what about time to load the audio; or maybe load audio automatically but have listener on start button to start playing audio-->
+		<audio id="bgdAudio" loop onloadeddata="setLowVolume()" autoplay>
+		  <source src="media/waterfalls.mp3" type="audio/mpeg" volume="0"/>
+		</audio>
+		<script>
+			var setLowVolume = function() {
+				var backgroundAudio = document.getElementById("bgdAudio")
+				backgroundAudio.volume=.7;
+			}
+		</script>
+</body>
+</html>
