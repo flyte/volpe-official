@@ -1,0 +1,121 @@
+<html>
+    <head>
+    <title>Mr Potato Volpe</title>
+    </head>
+    <body>
+
+        <audio id="bgdAudio" loop  autoplay>
+            <source src="http://tonyvolpe.eu/volpe-frogger/media/waterfalls.mp3" type="audio/mpeg" volume="100"/>
+        </audio>
+
+        <img src="./arm-left.png" class="dragme">
+        <img src="./arm-right.png" class="dragme">
+        <img src="./mustache.png" class="dragme">
+        <img src="./hat.png" class="dragme">
+        <img src="./ear-left.png" class="dragme">
+        <img src="./ear-right.png" class="dragme">
+
+        <style type="text/css">
+            html, body
+            {
+                margin: 0;
+                padding: 0;
+            }
+
+            body
+            {
+                background: url(background.jpg) no-repeat center;
+            }
+
+            .dragme
+            {
+                cursor: move;
+                position:relative;
+            }
+        </style>
+
+        <script type="text/javascript">
+
+            function startDrag(event)
+            {
+                // determine event object
+                if (!event)
+                {
+                    var event = window.event;
+                }
+
+                if(event.preventDefault)
+                {
+                    event.preventDefault();
+                }
+
+                // IE uses srcElement, others use target
+                target = event.target ? event.target : event.srcElement;
+
+                if (target.className != "dragme")
+                {
+                    return
+                };
+
+                // calculate event X, Y coordinates
+                offsetX = event.clientX;
+                offsetY = event.clientY;
+
+                // assign default values for top and left properties
+                if (!target.style.left)
+                {
+                    target.style.left = "0px";
+                };
+
+                if (!target.style.top)
+                {
+                    target.style.top = "0px";
+                };
+
+                // calculate integer values for top and left
+                // properties
+                coordX = parseInt(target.style.left);
+                coordY = parseInt(target.style.top);
+                drag = true;
+
+                // move div element
+                document.onmousemove = dragDiv;
+
+                return false;
+
+            }
+
+            function dragDiv(event)
+            {
+                if (!drag)
+                {
+                    return
+                };
+
+                if (!event)
+                {
+                    var e= window.event
+                };
+
+                target.style.left = coordX + event.clientX - offsetX + "px";
+                target.style.top = coordY + event.clientY - offsetY + "px";
+
+                return false;
+            }
+
+            function stopDrag()
+            {
+                drag = false;
+            }
+
+            window.onload = function()
+            {
+                document.onmousedown = startDrag;
+                document.onmouseup = stopDrag;
+            }
+
+        </script>
+
+
+    </body>
+</html>
